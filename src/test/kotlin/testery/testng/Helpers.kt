@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver
 import java.io.File
 import java.util.*
 import org.openqa.selenium.chrome.ChromeOptions
+import org.testng.Reporter
 
 object Helpers {
     private val screenShotDir =  File("screenshots")
@@ -31,6 +32,6 @@ object Helpers {
         val src = (this as TakesScreenshot).getScreenshotAs(OutputType.FILE)
         val dest = File(screenShotDir, "$name.png")
         dest.writeBytes(src.readBytes())
-        println("Stored screenshot at: ${dest.absolutePath}")
+        Reporter.log("Stored screenshot at: ${dest.absolutePath}")
     }
 }
