@@ -6,7 +6,7 @@ import org.testng.annotations.Test
 
 class TestSomething {
 
-    @Test(groups = ["pass"])
+    @Test(groups = ["pass", "nonWeb"])
     fun testSomeValue() {
         Reporter.log("Output from test")
         Assert.assertEquals(Something.someValue,"foo")
