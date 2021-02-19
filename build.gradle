@@ -1,0 +1,39 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.30'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.seleniumhq.selenium:selenium-chrome-driver:3.141.59"
+    testCompile 'org.testng:testng:7.1.0'
+}
+
+test {
+    useTestNG()
+
+    testLogging {
+        exceptionFormat = 'full'
+    }
+
+    afterTest { desc, result ->
+        println "${desc.className} ${desc.name} ${result.resultType}"
+    }
+
+    outputs.upToDateWhen { false }
+}
+
+shadowJar {
+    baseName = ""
+    from {
+        sourceSets.test.output
+    }
+    configurations.add(project.configurations.testRuntime)
+}
