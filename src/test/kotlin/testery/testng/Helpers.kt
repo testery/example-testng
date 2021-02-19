@@ -30,8 +30,9 @@ object Helpers {
 
     fun WebDriver.takeScreenshot(name: String = UUID.randomUUID().toString()) {
         val src = (this as TakesScreenshot).getScreenshotAs(OutputType.FILE)
-        val dest = File(screenShotDir, "$name.png")
+        val fileName = "$name.png"
+        val dest = File(screenShotDir, fileName)
         dest.writeBytes(src.readBytes())
-        Reporter.log("Stored screenshot at: ${dest.absolutePath}")
+        Reporter.log("Stored screenshot: $fileName")
     }
 }
