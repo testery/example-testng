@@ -20,6 +20,7 @@ object Helpers {
         val options = ChromeOptions()
 
         if(System.getenv("IS_TESTERY") == "true") {
+            options.setHeadless(true)
             options.addArguments(System.getenv("TESTERY_CHROME_ARGS").split(";"))
         } else {
             options.addArguments("--headless", "--start-maximized", "--window-size=1920,1080")
