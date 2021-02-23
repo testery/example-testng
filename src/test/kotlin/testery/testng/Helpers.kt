@@ -17,16 +17,21 @@ object Helpers {
     }
 
     fun createBrowser(): WebDriver {
-        val options = ChromeOptions()
+        try {
+            val options = ChromeOptions()
 
-        if(System.getenv("IS_TESTERY") == "true") {
-            options.setHeadless(true)
-            options.addArguments(System.getenv("TESTERY_CHROME_ARGS").split(";"))
-        } else {
-            options.addArguments("--headless", "--start-maximized", "--window-size=1920,1080")
+            if (System.getenv("IS_TESTERY") == "true") {
+                options.addArguments(System.getenv("TESTERY_CHROME_ARGS").split(";"))
+            } else {
+                options.addArguments("--headless", "--start-maximized", "--window-size=1920,1080")
+            }
+
+            return ChromeDriver(options)
+        } catch (e:Exception) {
+            Reporter.log(e.toString())
+            e.printStackTrace()
+            throw e
         }
-
-        return ChromeDriver(options)
     }
 
     fun WebDriver.takeScreenshot(name: String = UUID.randomUUID().toString()) {

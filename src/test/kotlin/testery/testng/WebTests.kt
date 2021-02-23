@@ -1,13 +1,15 @@
 package testery.testng
 
+import org.openqa.selenium.WebDriver
 import org.testng.annotations.Test
 import org.testng.Assert
+import org.testng.Reporter
 import testery.testng.Helpers.createBrowser
 import testery.testng.Helpers.takeScreenshot
 
 
 class WebTests {
-    val browser = createBrowser()
+    private val browser = createBrowser()
 
     @Test(groups = ["pass"])
     fun webSiteName() {
