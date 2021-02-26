@@ -35,7 +35,16 @@ test {
 
 task testeryJar(type: ShadowJar) {
     archiveFileName = "testery.jar"
+    from {
+        sourceSets.main.output
+        sourceSets.test.output
+    }
+    configurations.addAll(project.tasks.shadowJar.configurations)
+    configurations.add(project.configurations.testRuntime)
+}
+
+shadowJar {
+    archiveFileName = "testery.jar"
     from sourceSets.test.output
-    configurations.addAll(tasks.shadowJar.configurations)
     configurations.add(project.configurations.testRuntime)
 }
