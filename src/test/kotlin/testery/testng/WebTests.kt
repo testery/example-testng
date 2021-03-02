@@ -17,6 +17,14 @@ class WebTests {
         Assert.assertEquals(browser.title,"Testery - Cloud-based continuous testing platform")
     }
 
+    @Test(groups = ["pass"])
+    fun anotherPageName() {
+        browser.get("https://testery.io/features");
+
+        browser.takeScreenshot("testery-features")
+        Assert.assertEquals(browser.title,"Testery - Cloud-based continuous testing platform")
+    }
+
     @Test(groups = ["fail"])
     fun badWebSiteName() {
         browser.get("http://www.testery.io/");
