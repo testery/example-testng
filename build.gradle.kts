@@ -3,6 +3,11 @@ plugins {
     id("io.testery") version "1.1"
 }
 
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("org.seleniumhq.selenium:selenium-chrome-driver:3.141.59")
