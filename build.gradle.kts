@@ -1,6 +1,6 @@
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.4.30"
-    id("io.testery") version "1.1"
+    id("io.testery") version "1.2"
 }
 
 repositories {

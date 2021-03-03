@@ -21,4 +21,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Upload build to Testery and create a deploy
-        run: ./gradlew uploadBuild createDeploy
+        run: ./gradlew uploadBuildToTestery notifyTesteryOfDeploy
