@@ -14,7 +14,7 @@ jobs:
   testery:
     runs-on: ubuntu-latest
     env:
-      TESTERY_API_KEY: ${{ secrets.TESTERY_API_KEY }}
+      TESTERY_API_TOKEN: ${{ secrets.TESTERY_API_TOKEN }}
       TESTERY_ENVIRONMENT_KEY: dev
 
     steps:

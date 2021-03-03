@@ -1,6 +1,6 @@
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.4.30"
-    id("io.testery") version "1.2"
+    id("io.testery") version "1.3"
 }
 
 repositories {
@@ -15,7 +15,7 @@ dependencies {
 }
 
 testery {
-    apiKey = System.getenv("TESTERY_API_KEY")
+    apiToken = System.getenv("TESTERY_API_TOKEN")
     projectKey = "example-testng"
     buildId = System.getenv("GITHUB_RUN_NUMBER")
     branch = System.getenv("GITHUB_REF")?.substringAfter("heads/")
