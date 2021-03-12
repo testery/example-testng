@@ -24,4 +24,9 @@ class TestSomething {
 
         Assert.assertEquals(content, "hello from file")
     }
+
+    @Test(description = "some name", groups = ["fail"], enabled = false)
+    fun aDisabledTest() {
+        Assert.assertEquals(true, false)
+    }
 }
